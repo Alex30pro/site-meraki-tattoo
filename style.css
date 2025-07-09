@@ -224,3 +224,57 @@ footer {
 .portfolio-item img {
     cursor: pointer;
 }
+/* ========================================= */
+/* ===== CÓDIGO DE RESPONSIVIDADE MÓVEL ===== */
+/* ========================================= */
+
+/* Regras aplicadas quando a tela tem 768px de largura ou menos */
+@media (max-width: 768px) {
+
+    /* --- AJUSTES GERAIS --- */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* --- CABEÇALHO --- */
+    header nav {
+        display: none; /* Esconde o menu de navegação em telas pequenas. A solução completa seria um menu 'hambúrguer', mas isso já resolve o bug de layout. */
+    }
+
+    /* --- FONTES --- */
+    h1 { font-size: 2.5rem; } /* Diminui o tamanho do título principal */
+    h2 { font-size: 2rem; }   /* Diminui o tamanho dos títulos de seção */
+    .subtitle { font-size: 1.1rem; }
+
+    /* --- SEÇÕES --- */
+    .fullscreen-section {
+        height: auto; /* A altura da seção passa a ser automática para se ajustar ao conteúdo */
+        min-height: 80vh; /* Garante uma altura mínima para um visual bonito */
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    
+    .text-block {
+        padding: 1.5rem; /* Diminui o espaçamento interno em blocos de texto */
+    }
+
+    /* --- PORTFÓLIO --- */
+    .portfolio-grid {
+        /* Garante que o portfólio fique em uma única coluna no celular */
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+
+    /* --- CONTATO --- */
+    .contact-links {
+        flex-direction: column; /* Coloca os botões um embaixo do outro */
+        align-items: center;
+        gap: 1rem;
+    }
+    .contact-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}

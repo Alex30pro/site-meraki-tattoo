@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabella Menezes | Meraki Tattoo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/c38641a365.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#inicio" class="logo">
+             <img src="images/logo.jpeg" alt="Logo Meraki Tattoo">
+             <span>Meraki Tattoo</span>
+             </a>
+            <nav>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#portfolio" class="nav-link">Portfólio</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="fullscreen-section">
+            <div class="background-image" style="background-image: url('images/sua-foto-de-fundo-1.jpeg');"></div>
+            <div class="overlay"></div>
+            <div class="section-content">
+                <h1>Isabella Menezes</h1>
+                <p class="subtitle">Tattoo Artist</p>
+            </div>
+        </section>
+
+        <section id="sobre" class="fullscreen-section">
+            <div class="background-image" style="background-image: url('images/sua-foto-de-fundo-2.jpeg');"></div>
+            <div class="overlay"></div>
+            <div class="section-content text-block">
+                <h2>A Arte do Old School</h2>
+                <p>Isabella Menezes dedica sua arte ao estilo Old School (ou Tradicional). Caracterizado por linhas pretas e ousadas, uma paleta de cores sólida e vibrante, e uma iconografia clássica de águias, âncoras, rosas e pinups, cada tatuagem é criada para ser atemporal.</p>
+                <p>Com respeito pela história da tatuagem e um olhar moderno, Isabella cria peças únicas que carregam tradição e personalidade.</p>
+            </div>
+        </section>
+
+        <section id="portfolio" class="fullscreen-section">
+            <div class="background-image" style="background-image: url('images/sua-foto-de-fundo-4.jpeg');"></div>
+            <div class="overlay"></div>
+            <div class="section-content">
+                <h2>Portfólio</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item"><img src="images/tattoo1.jpeg" alt="Tatuagem Old School"></div>
+                    <div class="portfolio-item"><img src="images/tattoo2.jpeg" alt="Tatuagem Old School"></div>
+                    <div class="portfolio-item"><img src="images/tattoo3.jpeg" alt="Tatuagem Old School"></div>
+                    <div class="portfolio-item"><img src="images/tattoo4.jpeg" alt="Tatuagem Old School"></div>
+                    <div class="portfolio-item"><img src="images/tattoo5.jpeg" alt="Tatuagem Old School"></div>
+                    <div class="portfolio-item"><img src="images/tattoo6.jpeg" alt="Tatuagem Old School"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact-section">
+            <div class="section-content">
+                <h2>Agende sua Tattoo</h2>
+                <p>Vamos transformar sua ideia em uma arte atemporal. Entre em contato para orçamentos e agendamentos.</p>
+                <div class="contact-links">
+                    <a href="https://www.instagram.com/isabella_menezzes/" target="_blank" class="contact-button">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://wa.me/554298736717" target="_blank" class="contact-button">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Isabella Menezes | Meraki Tattoo. Desenvolvido por Alex Araujo.</p>
+    </footer>
+    <div id="modal-container">
+    <span id="modal-close">&times;</span>
+    <img id="modal-image" src="" alt="Tatuagem em destaque">
+</div>
+<script>
+// LÓGICA DO MODAL (LIGHTBOX)
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Pegar todos os elementos que vamos usar
+    const modalContainer = document.getElementById('modal-container');
+    const modalImage = document.getElementById('modal-image');
+    const modalClose = document.getElementById('modal-close');
+    const portfolioImages = document.querySelectorAll('.portfolio-item img');
+
+    // 2. Adicionar um 'ouvinte' de clique para cada imagem da galeria
+    portfolioImages.forEach(image => {
+        image.addEventListener('click', () => {
+            modalContainer.style.display = 'flex'; // Mostra o modal
+            modalImage.src = image.src; // Coloca a imagem clicada dentro do modal
+        });
+    });
+
+    // 3. Função para fechar o modal
+    const closeModal = () => {
+        modalContainer.style.display = 'none';
+    };
+
+    // 4. Adicionar eventos para fechar o modal
+    modalClose.addEventListener('click', closeModal); // Clicando no 'X'
+    modalContainer.addEventListener('click', (event) => {
+        // Fecha somente se o clique for no fundo (container) e não na imagem
+        if (event.target === modalContainer) {
+            closeModal();
+        }
+    });
+});
+</script>
+
+</body>
+</html>

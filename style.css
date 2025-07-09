@@ -1,0 +1,226 @@
+/* FONTES E VARIÁVEIS DE COR */
+:root {
+    --bg-color: #121212; /* Preto suave */
+    --text-primary: #FFFFFF; /* Branco */
+    --text-secondary: #A0A0A0; /* Cinza claro */
+    --border-color: #333333; /* Cinza escuro para bordas */
+    --font-family: 'Raleway', sans-serif;
+}
+
+/* RESET E ESTILOS GLOBAIS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    overflow-x: hidden;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* CABEÇALHO */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 0;
+    transition: background-color 0.3s;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;         /* ADICIONADO: Para alinhar itens lado a lado */
+    align-items: center;   /* ADICIONADO: Para alinhar verticalmente */
+    gap: 0.75rem;          /* ADICIONADO: Para dar um espaço entre o logo e o texto */
+}
+/* ESTILO PARA A IMAGEM DO LOGO NO CABEÇALHO */
+/* ESTILO PARA A IMAGEM DO LOGO NO CABEÇALHO */
+.logo img {
+    height: 40px;         /* A altura continua a mesma */
+    width: 40px;          /* ADICIONADO: Força a imagem a ser quadrada */
+    border-radius: 50%;   /* ADICIONADO: Transforma o quadrado em um círculo */
+    object-fit: cover;    /* ADICIONADO: Garante que a imagem preencha o círculo sem distorcer */
+}
+nav { display: flex; gap: 2rem; }
+.nav-link {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: width 0.3s ease-in-out;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* SEÇÕES DE TELA CHEIA */
+.fullscreen-section {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+.background-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Camada escura para garantir leitura */
+    z-index: 2;
+}
+.section-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    margin: 0 auto; /* ADICIONADO: Centraliza o bloco na página */
+}
+
+/* ESTILOS DE TEXTO */
+h1 { font-size: 4rem; font-weight: 300; letter-spacing: 2px; }
+h2 { font-size: 3rem; font-weight: 600; margin-bottom: 2rem; }
+.subtitle { font-size: 1.5rem; color: var(--text-secondary); }
+.text-block { background-color: rgba(0,0,0,0.3); padding: 2rem; border-radius: 5px; }
+.text-block p { font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); }
+.text-block p:first-of-type { color: var(--text-primary); margin-bottom: 1rem; }
+
+/* PORTFÓLIO */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.portfolio-item img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* CONTATO */
+.contact-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    background-color: #000;
+}
+.contact-section p {
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+}
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.contact-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.contact-button:hover {
+    background-color: var(--border-color);
+    border-color: var(--text-primary);
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+}
+/* ESTILOS PARA O MODAL (LIGHTBOX) DO PORTFÓLIO */
+
+/* O contêiner do modal, que cobre a tela inteira */
+#modal-container {
+    display: none; /* Começa escondido */
+    position: fixed; /* Fica fixo na tela, mesmo com a rolagem */
+    z-index: 1001; /* Garante que fique na frente de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo preto com 90% de opacidade */
+    justify-content: center;
+    align-items: center;
+}
+
+/* A imagem dentro do modal */
+#modal-image {
+    max-width: 90%; /* A imagem nunca será mais larga que 90% da tela */
+    max-height: 85%; /* E nunca mais alta que 85% da tela */
+    border-radius: 5px;
+    animation: zoomIn 0.3s ease-in-out; /* Animação de zoom ao abrir */
+}
+
+/* Animação de Zoom */
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* O botão 'X' para fechar */
+#modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#modal-close:hover {
+    color: #bbb;
+}
+
+/* Adiciona o cursor de 'mãozinha' nas imagens da galeria */
+.portfolio-item img {
+    cursor: pointer;
+}

@@ -120,6 +120,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+    <audio id="background-music" src="musica-fundo.mp3" loop></audio>
+<button id="music-toggle-btn">
+    <i class="fas fa-play"></i>
+</button>
+    <script>
+// LÓGICA DO PLAYER DE MÚSICA
+document.addEventListener('DOMContentLoaded', () => {
+    const music = document.getElementById('background-music');
+    const toggleBtn = document.getElementById('music-toggle-btn');
+    const btnIcon = toggleBtn.querySelector('i');
+    let isPlaying = false;
+    music.volume = 0.3; // Define um volume mais baixo (de 0 a 1)
+
+    toggleBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            music.pause();
+            btnIcon.className = 'fas fa-play';
+        } else {
+            music.play();
+            btnIcon.className = 'fas fa-pause';
+        }
+        isPlaying = !isPlaying;
+    });
+});
+</script>
 
 </body>
 </html>

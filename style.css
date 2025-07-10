@@ -278,3 +278,27 @@ footer {
         justify-content: center;
     }
 }
+/* ESTILO DO BOTÃO DE MÚSICA */
+#music-toggle-btn {
+    position: fixed; /* Fica fixo na tela */
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+#music-toggle-btn:hover {
+    transform: scale(1.1);
+}
